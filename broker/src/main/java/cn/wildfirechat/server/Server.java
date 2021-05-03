@@ -12,6 +12,7 @@ import java.io.IOException;
 
 public class Server {
     public static void main(String[] args) throws IOException {
-        io.moquette.server.Server.start(args);
+        //im服务器启动入口
+        cn.wildfirechat.im.server.Server.start(args);
     }
 }

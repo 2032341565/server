@@ -22,7 +22,7 @@
         <max-size policy="PER_NODE">1000000</max-size>
         <eviction-percentage>10</eviction-percentage>
         <map-store enabled="true">
-            <class-name>io.moquette.persistence.MessageLoader</class-name>
+            <class-name>cn.wildfirechat.im.persistence.MessageLoader</class-name>
             <write-delay-seconds>0</write-delay-seconds>
         </map-store>
     </map>
@@ -34,7 +34,7 @@
         <max-size policy="PER_NODE">1000000</max-size>
         <eviction-percentage>10</eviction-percentage>
         <map-store enabled="true">
-            <class-name>io.moquette.persistence.GroupLoader</class-name>
+            <class-name>cn.wildfirechat.im.persistence.GroupLoader</class-name>
             <write-delay-seconds>0</write-delay-seconds>
         </map-store>
     </map>
@@ -45,7 +45,7 @@
         <max-size policy="PER_NODE">1000000</max-size>
         <eviction-percentage>10</eviction-percentage>
         <map-store enabled="true">
-            <class-name>io.moquette.persistence.UserLoader</class-name>
+            <class-name>cn.wildfirechat.im.persistence.UserLoader</class-name>
             <write-delay-seconds>0</write-delay-seconds>
         </map-store>
     </map>
@@ -56,7 +56,7 @@
         <max-size policy="PER_NODE">1000000</max-size>
         <eviction-percentage>10</eviction-percentage>
         <map-store enabled="true">
-            <class-name>io.moquette.persistence.UserStatusLoader</class-name>
+            <class-name>cn.wildfirechat.im.persistence.UserStatusLoader</class-name>
             <write-delay-seconds>0</write-delay-seconds>
         </map-store>
     </map>
@@ -82,7 +82,7 @@
         <time-to-live-seconds>604800</time-to-live-seconds>
         <eviction-policy>LRU</eviction-policy>
         <map-store enabled="true">
-            <class-name>io.moquette.persistence.ChatroomLoader</class-name>
+            <class-name>cn.wildfirechat.im.persistence.ChatroomLoader</class-name>
             <write-delay-seconds>0</write-delay-seconds>
         </map-store>
     </map>
@@ -97,7 +97,7 @@
         <max-size policy="PER_NODE">1000000</max-size>
         <eviction-percentage>10</eviction-percentage>
         <map-store enabled="true">
-            <class-name>io.moquette.persistence.RobotLoader</class-name>
+            <class-name>cn.wildfirechat.im.persistence.RobotLoader</class-name>
             <write-delay-seconds>0</write-delay-seconds>
         </map-store>
     </map>
@@ -127,7 +127,7 @@
         <max-size policy="PER_NODE">1000000</max-size>
         <eviction-percentage>10</eviction-percentage>
         <map-store enabled="true">
-            <class-name>io.moquette.persistence.ChannelLoader</class-name>
+            <class-name>cn.wildfirechat.im.persistence.ChannelLoader</class-name>
             <write-delay-seconds>0</write-delay-seconds>
         </map-store>
     </map>
