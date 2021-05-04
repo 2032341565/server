@@ -36,7 +36,6 @@ import cn.wildfirechat.im.spi.impl.subscriptions.Topic;
 import cn.wildfirechat.mqtt.MqttVersion;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import win.liyufan.im.*;
 
 import java.security.MessageDigest;
 import java.sql.Connection;

@@ -37,14 +37,10 @@ import cn.wildfirechat.http.LoServer;
 import cn.wildfirechat.http.ServerSetting;
 import cn.wildfirechat.http.action.admin.AdminAction;
 import cn.wildfirechat.im.BrokerConstants;
-import io.moquette.persistence.*;
-import io.moquette.interception.*;
-import io.moquette.server.config.*;
 import cn.wildfirechat.im.spi.IStore;
 import cn.wildfirechat.im.spi.impl.ProtocolProcessor;
 import cn.wildfirechat.im.spi.impl.ProtocolProcessorBootstrapper;
 import cn.wildfirechat.im.spi.impl.security.AES;
-import io.mqtt.server.config.*;
 import io.netty.util.ResourceLeakDetector;
 import io.netty.util.internal.StringUtil;
 import cn.wildfirechat.util.DBUtil;
@@ -102,40 +98,6 @@ public class Server {
     private IStore m_store;
     static {
         System.out.println(BANNER);
-    }
-
-    public static void start(String[] args) throws IOException {
-        instance = new Server();
-        final IConfig config = defaultConfig();
-
-        System.setProperty("hazelcast.logging.type", "none" );
-        instance.mConfig = config;
-        ResourceLeakDetector.setLevel(ResourceLeakDetector.Level.ADVANCED);
-
-        instance.startServer(config);
-
-        int httpLocalPort = Integer.parseInt(config.getProperty(BrokerConstants.HTTP_LOCAL_PORT));
-        int httpAdminPort = Integer.parseInt(config.getProperty(BrokerConstants.HTTP_ADMIN_PORT));
-
-        AdminAction.setSecretKey(config.getProperty(HTTP_SERVER_SECRET_KEY));
-        AdminAction.setNoCheckTime(config.getProperty(HTTP_SERVER_API_NO_CHECK_TIME));
-
-        final LoServer httpServer = new LoServer(httpLocalPort, httpAdminPort, instance.m_processor.getMessagesStore(), instance.m_store.sessionsStore());
-        try {
-            httpServer.start();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            Utility.printExecption(LOG, e);
-        }
-
-        final PushServer pushServer = PushServer.getServer();
-        pushServer.init(config, instance.getStore().sessionsStore());
-
-        //Bind  a shutdown hook
-        Runtime.getRuntime().addShutdownHook(new Thread(instance::stopServer));
-        Runtime.getRuntime().addShutdownHook(new Thread(httpServer::shutdown));
-
-        System.out.println("Wildfire IM server start success...");
     }
 
     /**

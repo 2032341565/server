@@ -22,8 +22,6 @@ import io.netty.channel.ChannelDuplexHandler;
 import io.netty.channel.ChannelHandler.Sharable;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelPromise;
-import io.netty.handler.codec.mqtt.*;
-import io.netty.handler.codec.mqtt1.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
